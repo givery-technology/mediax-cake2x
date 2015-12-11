@@ -1,9 +1,11 @@
 {
     "name": "mediax-cake2x",
     "require": {
-        "cakephp/cakephp": "2.7.*"
+        "cakephp/cakephp": "2.7.*",
+	"phpunit/phpunit": "4.8.*"
     },
     "config": {
         "vendor-dir": "Vendor/"
     }
 }
+
