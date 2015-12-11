@@ -20,7 +20,8 @@ script:
   - echo "Running test script"
   - date
   - env
-  - phpcs -p --extensions=php --standard=CakePHP ./Controller/
+#  - phpcs -p --extensions=php --standard=CakePHP ./Controller/
+  - sh -c "if [ '$PHPCS' = '1' ]; then ~/.composer/vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./Controller; fi;"
 
 notifications:
   email: false
