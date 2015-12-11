@@ -13,7 +13,7 @@ env:
 
 before_script:
   - echo "Before script"
-  - ls
+  - composer show --installed
   - date
 
 script:
