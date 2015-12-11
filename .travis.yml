@@ -1,6 +1,12 @@
 language: php
+install: composer install
+cache:
+  directories:
+    - Vendor
+
 
 php:
+  - 5.5
   - 5.6
 
 env:
@@ -21,7 +27,7 @@ script:
   - date
   - env
 #  - phpcs -p --extensions=php --standard=CakePHP ./Controller/
-  - sh -c "if [ '$PHPCS' = '1' ]; then ~/.composer/vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./Controller; fi;"
+  - ./Vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./Controller
 
 notifications:
   email: false
