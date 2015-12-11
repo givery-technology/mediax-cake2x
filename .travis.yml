@@ -21,6 +21,7 @@ before_script:
   - echo "Before script"
   - composer show --installed
   - date
+  - ./Vendor/bin/phpcs --config-set installed_paths $(pwd)/Vendor/cakephp/cakephp-codesniffer
 
 script:
   - echo "Running test script"
