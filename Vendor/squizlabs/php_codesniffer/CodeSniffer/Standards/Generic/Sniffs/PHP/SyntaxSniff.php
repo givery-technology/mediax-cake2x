@@ -64,27 +64,16 @@ class Generic_Sniffs_PHP_SyntaxSniff implements PHP_CodeSniffer_Sniff
         $output   = shell_exec($cmd);
 
         $matches = array();
-        if (preg_match('/^.*error:(.*) in .* on line ([0-9]+)/', $output, $matches)) {
+        if (preg_match('/^.*error:(.*) in .* on line ([0-9]+)/', trim($output), $matches) === 1) {
             $error = trim($matches[1]);
             $line  = (int) $matches[2];
-
-            $tokens   = $phpcsFile->getTokens();
-            $numLines = $tokens[($phpcsFile->numTokens - 1)]['line'];
-            if ($line > $numLines) {
-                $line = $numLines;
-            }
-
-            foreach ($tokens as $id => $token) {
-                if ($token['line'] === $line) {
-                    $phpcsFile->addError("PHP syntax error: $error", $id, 'PHPSyntax');
-                    break;
-                }
-            }
+            $phpcsFile->addErrorOnLine("PHP syntax error: $error", $line, 'PHPSyntax');
         }
+
+        // Ignore the rest of the file.
+        return ($phpcsFile->numTokens + 1);
 
     }//end process()
 
 
 }//end class
-
-?>
