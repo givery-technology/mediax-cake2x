@@ -28,7 +28,7 @@ script:
   - date
   - env
 #  - phpcs -p --extensions=php --standard=CakePHP ./Controller/
-  - ./Vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./Controller
+#  - ./Vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./Controller
 
 notifications:
   email: false
