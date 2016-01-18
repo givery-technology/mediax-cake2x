@@ -24,14 +24,14 @@ before_script:
   - ./Vendor/bin/phpcs --config-set installed_paths $(pwd)/Vendor/cakephp/cakephp-codesniffer
 
   - echo "CheckStyle before script"
-  - ./Vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./mediax27x
+  #- ./Vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./mediax27x
   - echo "Automation fix CheckStyle"
-  - ./Vendor/bin/phpcbf -p --extensions=php --standard=CakePHP ./mediax27x
+  #- ./Vendor/bin/phpcbf -p --extensions=php --standard=CakePHP ./mediax27x
 
 script:
   - echo "Running test script"
   - date
   - env
-  - ./Vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./mediax27x
+  #- ./Vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./mediax27x
 notifications:
   email: false
